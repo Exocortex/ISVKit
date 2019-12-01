@@ -28,10 +28,14 @@
     let animationToggle = false;
 
     function toggleAnimation() {
+      /** In this example, we have a single animation that we toggle on/off.
+       * However, one asset can have many animations and our API allows for quite granular control.
+       * Docs: https://clara.io/docs/module-animation.html
+       */
       const clip = api.animation.getClips()[0];
       if (animationToggle)
-        api.animation.queueClip(clip.id, { playSpeed: 1, autoplay: true });
-      else api.animation.queueClip(clip.id, { playSpeed: -1, autoplay: true });
+        api.animation.queueClip(clip.id, { playSpeed: -1, autoplay: true });
+      else api.animation.queueClip(clip.id, { playSpeed: 1, autoplay: true });
       animationToggle = !animationToggle;
     }
   </script>

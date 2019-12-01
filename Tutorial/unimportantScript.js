@@ -95,7 +95,7 @@ function goBack() {
 
   const indexOf = examples.findIndex(ex => ex.path === cur.path);
 
-  if (indexOf === 0) window.location.href = `../home.html`;
+  if (indexOf === 0) window.location.href = `../index.html`;
   else window.location.href = `./${examples[indexOf - 1].path}`;
 }
 
@@ -105,6 +105,6 @@ function goNext() {
 
   const indexOf = examples.findIndex(ex => ex.path === cur.path);
 
-  if (indexOf === examples.length - 1) window.location.href = `../home.html`;
+  if (indexOf === examples.length - 1) window.location.href = `../index.html`;
   else window.location.href = `./${examples[indexOf + 1].path}`;
 }

@@ -1,0 +1,78 @@
+<!-- THIS PAGE SIMPLY ROUTES YOU TO THE EXAMPLES -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .example {
+        margin: 20px;
+        width: max-content;
+      }
+
+      .child-item:hover {
+        cursor: pointer;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body id="app"></body>
+  <script>
+    function createCard(item, root, index) {
+      const el = document.createElement("div");
+      el.setAttribute("id", item.path);
+      root
+        ? el.setAttribute("class", "example child-item")
+        : el.setAttribute("class", "example");
+
+      root &&
+        el.addEventListener(
+          "click",
+          ev => (window.location.href = `./${item.path}`)
+        );
+
+      el.innerText = `${item.title}`;
+
+      console.log(root);
+
+      if (root) root.appendChild(el);
+      else document.querySelector("body").appendChild(el);
+
+      if (item.children && item.children.length > 0)
+        item.children.map((child, i) => createCard(child, el, i));
+    }
+
+    [
+      {
+        title: "Tutorial",
+        path: "./Tutorial/1_AppWNoPlayer.html",
+        children: [
+          {
+            path: "./Tutorial/1_AppWNoPlayer.html",
+            title: "1 -- Start"
+          },
+          {
+            path: "./Tutorial/2_EmbedPlayer.html",
+            title: "2 -- Embed Player"
+          },
+          {
+            path: "./Tutorial/3_ConnectConfig.html",
+            title: "3 -- Connect Configuration"
+          }
+        ]
+      },
+      {
+        title: "Use Cases",
+        path: "./UseCases/InitializePlayer.html",
+        children: [
+          {
+            path: "./UseCases/InitializePlayer.html",
+            title: "Initialize Player"
+          },
+          {
+            path: "./UseCases/Animations.html",
+            title: "Toggle Animation"
+          }
+        ]
+      }
+    ].map(item => createCard(item));
+  </script>
+</html>

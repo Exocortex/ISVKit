@@ -1,0 +1,19 @@
+.button-toggle {
+  position: fixed;
+  left: 25px;
+  top: 25px;
+  z-index: 1000;
+}
+
+.nav-bar {
+  border: 1px solid blue;
+  padding: 5px;
+  position: fixed;
+  right: 25px;
+  top: 25px;
+  z-index: 100;
+}
+
+.nav-bar > * {
+  cursor: pointer;
+}
