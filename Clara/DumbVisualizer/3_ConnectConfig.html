@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="unimportantStyle.css" />
+  </head>
+  <body>
+    <div class="app-header">
+      <img alt="logo" class="logo" src="https://i.imgur.com/2MWT9Aa.png" />
+    </div>
+    <div class="app-body">
+      <div class="app-section">
+        <div class="poduct-title">
+          <h2 class="product-name">Silq Modern Office Chair</h2>
+          <h5 class="product-sku">SKU: abc-123-xyz-987</h5>
+        </div>
+        <div class="config-form">
+          <h3>App Config Form</h3>
+          <div class="form-element">
+            <h4>Upholstery</h4>
+            <select name="Upholstery" onchange="configHandler(this)">
+              <option value="Hallingdal">Hallingdal</option>
+              <option value="Crystal Field">Crystal Field</option>
+              <option value="Reflex">Reflex</option>
+              <option value="Storey Time">Storey Time</option>
+            </select>
+          </div>
+          <div class="form-element">
+            <h4>Arms</h4>
+            <select name="Arms" onchange="configHandler(this)">
+              <option value="Arms">Arms</option>
+              <option value="Armless">Armless</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div style="height: 500px; position: relative; width: 400px;">
+        <div
+          id="player-el"
+          style="bottom: 0; left: 0; position: absolute; right: 0; top: 0;"
+        ></div>
+      </div>
+    </div>
+  </body>
+  <script src="https://clara.io/js/claraplayer.min.js"></script>
+  <script src="unimportantScript.js"></script>
+
+  <!-- ThreeKit Script -->
+  <script>
+    var api = claraplayer("player-el");
+    var SCENEID = "ef35df3f-c1ec-4856-8257-cf1fb74b5049";
+    /** Define what form you want to use.
+     * One scene can actually be used for many products. Forms allow you to define a
+     * set of attributes that are used for a product. Generally, forms have a 1:1
+     * mapping to a product.
+     *
+     * All Demos in this example use the form "Consumer"
+     */
+    var FORM = "Consumer";
+
+    /** Add initConfigurator
+     * Note: initConfigurator must be added after the api has "preloaded" or "loaded"
+     */
+    api.on("preloaded", () =>
+      api.configuration.initConfigurator({ form: FORM })
+    );
+
+    api.sceneIO.fetchAndUse(SCENEID);
+  </script>
+
+  <!-- App's Script -->
+  <script>
+    let configuration = { Upholstery: "Hallingdal", Arms: "With Arms" };
+
+    function configHandler(ev) {
+      configuration = Object.assign(configuration, { [ev.name]: ev.value });
+      return afterConfigUpdate(configuration);
+    }
+
+    function afterConfigUpdate(newConfiguration) {
+      console.log("New Configuration", newConfiguration);
+      /** Inject Configuration into Player Api after Config Update
+       * setConfiguration takes an object with the attribute name or id as the key.
+       *
+       * Like so...
+       * {
+       *    Upholstery: "Reflex"
+       * }
+       */
+      api.configuration.setConfiguration(newConfiguration);
+    }
+  </script>
+</html>

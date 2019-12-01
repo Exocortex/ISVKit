@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- Important Styles Are Defined Inline -->
-    <link rel="stylesheet" type="text/css" href="../NotImportant/styles.css" />
+    <link rel="stylesheet" type="text/css" href="unimportantStyle.css" />
   </head>
   <body>
     <div class="app-header">
@@ -18,7 +17,7 @@
           <h3>App Config Form</h3>
           <div class="form-element">
             <h4>Upholstery</h4>
-            <select name="upholstery">
+            <select name="Upholstery" onchange="configHandler(this)">
               <option value="Hallingdal">Hallingdal</option>
               <option value="Crystal Field">Crystal Field</option>
               <option value="Reflex">Reflex</option>
@@ -27,14 +26,13 @@
           </div>
           <div class="form-element">
             <h4>Arms</h4>
-            <select name="Arms">
-              <option value="With Arms">With Arms</option>
+            <select name="Arms" onchange="configHandler(this)">
+              <option value="Arms">Arms</option>
               <option value="Armless">Armless</option>
             </select>
           </div>
         </div>
       </div>
-
       <div style="height: 500px; position: relative; width: 400px;">
         <img
           alt="Boring Thumbnail"
@@ -45,5 +43,19 @@
     </div>
   </body>
   <script src="https://clara.io/js/claraplayer.min.js"></script>
-  <script src="../NotImportant/script.js"></script>
+  <script src="unimportantScript.js"></script>
+
+  <!-- App's Script -->
+  <script>
+    let configuration = { Upholstery: "Hallingdal", Arms: "With Arms" };
+
+    function configHandler(ev) {
+      configuration = Object.assign(configuration, { [ev.name]: ev.value });
+      return afterConfigUpdate(configuration);
+    }
+
+    function afterConfigUpdate(newConfiguration) {
+      console.log("New Configuration", newConfiguration);
+    }
+  </script>
 </html>

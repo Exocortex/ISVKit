@@ -10,34 +10,34 @@ window.examples = [
   },
   {
     message: `
-    <div>
-      This is our app without ThreeKit. In this tutorial, we will walk through each step to creating a fully integrated experience.
-    </div>`,
+      <div>
+        This is our app without ThreeKit. In this tutorial, we will walk through each step to creating a fully integrated experience.
+      </div>`,
     path: "2_AppWNoPlayer.html",
     title: "2. Our Fake App"
   },
   {
     message: `
-    <div>
-      <h4>Step 1: Embed Player</h4>
-        <li> Add a div for the PlayerEl </li>
-        <li> Add the player's script tag </li>
-        <li> Add JavaScript to initialize the Player </li>
-      </ol>
-    </div>
-    `,
+      <div>
+        <h4>Step 1: Embed Player</h4>
+          <li> Add a div for the PlayerEl </li>
+          <li> Add the player's script tag </li>
+          <li> Add JavaScript to initialize the Player </li>
+        </ol>
+      </div>
+      `,
     path: "3_EmbedPlayer.html",
     title: "3. Embed Player"
   },
   {
     message: `
-    <div>
-      <h4>Step 2: Connect Configuration</h4>
-        <li> Add initConfigurator to ThreeKit Script </li>
-        <li> Add a listener function that injects the config into the Player </li>
-      </ol>
-    </div>
-    `,
+      <div>
+        <h4>Step 2: Connect Configuration</h4>
+          <li> Add initConfigurator to ThreeKit Script </li>
+          <li> Add a listener function that injects the config into the Player </li>
+        </ol>
+      </div>
+      `,
     path: "4_ConnectConfig.html",
     title: "4. Connect Configuration"
   }
