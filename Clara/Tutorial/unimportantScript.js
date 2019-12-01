@@ -4,17 +4,12 @@
 
 window.examples = [
   {
-    message: ``,
-    path: "1_InitializePlayer.html",
-    title: "1. Initializing Player"
-  },
-  {
     message: `
       <div>
         This is our app without ThreeKit. In this tutorial, we will walk through each step to creating a fully integrated experience.
       </div>`,
-    path: "2_AppWNoPlayer.html",
-    title: "2. Our Fake App"
+    path: "1_AppWNoPlayer.html",
+    title: "1. Our Fake App"
   },
   {
     message: `
@@ -26,8 +21,8 @@ window.examples = [
         </ol>
       </div>
       `,
-    path: "3_EmbedPlayer.html",
-    title: "3. Embed Player"
+    path: "2_EmbedPlayer.html",
+    title: "2. Embed Player"
   },
   {
     message: `
@@ -38,8 +33,8 @@ window.examples = [
         </ol>
       </div>
       `,
-    path: "4_ConnectConfig.html",
-    title: "4. Connect Configuration"
+    path: "3_ConnectConfig.html",
+    title: "3. Connect Configuration"
   }
 ];
 
@@ -100,7 +95,7 @@ function goBack() {
 
   const indexOf = examples.findIndex(ex => ex.path === cur.path);
 
-  if (indexOf === 0) window.location.href = `./home.html`;
+  if (indexOf === 0) window.location.href = `../home.html`;
   else window.location.href = `./${examples[indexOf - 1].path}`;
 }
 
@@ -110,6 +105,6 @@ function goNext() {
 
   const indexOf = examples.findIndex(ex => ex.path === cur.path);
 
-  if (indexOf === examples.length - 1) window.location.href = `./home.html`;
+  if (indexOf === examples.length - 1) window.location.href = `../home.html`;
   else window.location.href = `./${examples[indexOf + 1].path}`;
 }

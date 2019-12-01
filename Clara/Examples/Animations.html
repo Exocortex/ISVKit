@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="unimportantStyle.css" />
+  </head>
+  <body>
+    <button class="button-toggle" onclick="toggleAnimation()">
+      Toggle Animation
+    </button>
+    <div
+      id="player-el"
+      style="bottom: 0; left: 0; position: absolute; right: 0; top: 0;"
+    ></div>
+  </body>
+  <script src="https://clara.io/js/claraplayer.min.js"></script>
+  <script src="unimportantScript.js"></script>
+  <script>
+    var api = claraplayer("player-el");
+    var FORM = "Consumer";
+    var SCENEID = "35d1cee9-a67b-4064-8ec2-43ab348e3507";
+    api.on("preloaded", () =>
+      api.configuration.initConfigurator({ form: FORM })
+    );
+    api.commands.getTools().map(api.player.hideTool);
+    api.sceneIO.fetchAndUse(SCENEID);
+  </script>
+  <script>
+    let animationToggle = false;
+
+    function toggleAnimation() {
+      const clip = api.animation.getClips()[0];
+      if (animationToggle)
+        api.animation.queueClip(clip.id, { playSpeed: 1, autoplay: true });
+      else api.animation.queueClip(clip.id, { playSpeed: -1, autoplay: true });
+      animationToggle = !animationToggle;
+    }
+  </script>
+</html>

@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Important Styles Are Defined Inline -->
-    <link rel="stylesheet" type="text/css" href="../NotImportant/styles.css" />
-  </head>
   <body>
     <!--The PlayerEl must have a fixed height
         If the PlayerEl's position is undefined or relative 
@@ -18,7 +14,7 @@
     ></div>
   </body>
   <script src="https://clara.io/js/claraplayer.min.js"></script>
-  <script src="../NotImportant/script.js"></script>
+  <script src="unimportantScript.js"></script>
   <script>
     var api = claraplayer("player-el");
     var FORM = "Consumer";
@@ -28,6 +24,9 @@
       /**  initConfigurator must be called on either 'preloaded' or 'loaded' */
       api.configuration.initConfigurator({ form: FORM });
     });
+
+    /** You can hide tools for a cleaner user interface */
+    api.commands.getTools().map(api.player.hideTool);
 
     /** Fetch and initialize the sceneId */
     api.sceneIO.fetchAndUse(SCENEID);
