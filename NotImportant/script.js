@@ -3,8 +3,32 @@
  * */
 
 window.examples = [
-  { title: "1. Initializing Player", path: "1_InitializePlayer.html" },
-  { title: "2. Embedding Player", path: "2_EmbedPlayer.html" }
+  {
+    message: ``,
+    path: "1_InitializePlayer.html",
+    title: "1. Initializing Player"
+  },
+  {
+    message: `
+    <div>
+      This is our app without ThreeKit. In this tutorial, we will walk through each step to creating a fully integrated experience.
+    </div>`,
+    path: "2_AppWNoPlayer.html",
+    title: "2. Our Fake App"
+  },
+  {
+    message: `
+    <div>
+      <h4>Step 1: Embed Player</h4>
+        <li> Add a div for the PlayerEl </li>
+        <li> Add the player's script tag </li>
+        <li> Add JavaScript to initialize the Player </li>
+      </ol>
+    </div>
+    `,
+    path: "3_AppWPlayer.html",
+    title: "3. App With Player Embedded"
+  }
 ];
 
 window.currentExample = examples.find(({ path }) =>
@@ -12,6 +36,31 @@ window.currentExample = examples.find(({ path }) =>
 );
 
 initNavigation();
+initMessage();
+
+/** MESSAGE */
+function initMessage() {
+  const body = document.querySelector("body");
+
+  const el = document.createElement("div");
+  el.setAttribute("class", "message-container");
+  el.setAttribute("id", "message-container");
+  el.innerHTML = window.currentExample.message;
+
+  const closeBttn = document.createElement("button");
+  closeBttn.setAttribute("class", "close-el");
+  closeBttn.innerText = "X";
+  closeBttn.addEventListener("click", closeMessage);
+
+  el.appendChild(closeBttn);
+  body.appendChild(el);
+}
+
+function closeMessage() {
+  document.getElementById("message-container").remove();
+}
+
+/** NAVIGATION */
 
 function initNavigation() {
   const body = document.querySelector("body");
@@ -48,8 +97,6 @@ function goNext() {
   const examples = window.examples;
 
   const indexOf = examples.findIndex(ex => ex.path === cur.path);
-
-  console.log("nav", { indexOf, examples, cur });
 
   if (indexOf === examples.length - 1) window.location.href = `./home.html`;
   else window.location.href = `./${examples[indexOf + 1].path}`;

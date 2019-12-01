@@ -1,6 +1,10 @@
 /* These styles are arbitrary and simply used for the purposes of this exercise. 
 All important styles are defined inline in the examples. */
 
+:root {
+  --app-border-radius: 0.825rem;
+}
+
 .app-header {
   background: black;
   position: sticky;
@@ -10,14 +14,69 @@ All important styles are defined inline in the examples. */
 
 .logo {
   height: 100px;
+  margin-left: 25px;
 }
 
 .app-body {
   display: flex;
+  max-width: 800px;
+  margin: auto;
 }
 
 .app-section {
   flex: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.poduct-title {
+  background: #fafafa;
+  min-width: 50%;
+  width: max-content;
+}
+
+.config-form {
+  border: solid 1px #a4aba0;
+  border-radius: var(--app-border-radius);
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  padding: 25px 15px;
+}
+
+.form-element {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+}
+
+.form-element > * {
+  margin: 5px;
+}
+
+.boring-thumbnail {
+  height: 100%;
+  width: 100%;
+}
+
+.message-container {
+  background: #e4e6e3;
+  border-radius: var(--app-border-radius);
+  padding: 10px;
+  position: fixed;
+  right: 5px;
+  top: 125px;
+  width: 300px;
+  word-wrap: break-word;
+}
+
+.close-el {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 .nav-bar {
