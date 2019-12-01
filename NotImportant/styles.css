@@ -1,0 +1,34 @@
+/* These styles are arbitrary and simply used for the purposes of this exercise. 
+All important styles are defined inline in the examples. */
+
+.app-header {
+  background: black;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.logo {
+  height: 100px;
+}
+
+.app-body {
+  display: flex;
+}
+
+.app-section {
+  flex: auto;
+}
+
+.nav-bar {
+  border: 1px solid blue;
+  padding: 5px;
+  position: fixed;
+  right: 25px;
+  top: 25px;
+  z-index: 100;
+}
+
+.nav-bar > * {
+  cursor: pointer;
+}
