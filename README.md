@@ -29,25 +29,20 @@ ThreeKit's Player is 100% JavaScript. That makes it easy to embedded into any we
 ```html
 <html>
   <body>
-    <div id="player-el" style="width: 400px; height: 300px;"></div>
+    <div
+      id="player-el"
+      style="height: 100%; position: absolute; width: 100%;"
+    ></div>
   </body>
   <script src="https://clara.io/js/claraplayer.min.js"></script>
   <script>
+    /** Initialize Player */
     var api = claraplayer("player-el");
-
-    /**
-     * Clara uses a 'sceneId' to define the 3D asset associated
-     * to a product & a 'form' to define the configurator. The form
-     * has a 1:1 mapping to the configurator.
-     *
-     * Note: ThreeKit has the concept of a product so defining a
-     * sceneId & form are not necessary.
-     */
-
     var FORM = "Consumer";
-    var SCENEID = "36f47863-c0b9-467f-a64f-78e34e2d894e";
+    var SCENEID = "ef35df3f-c1ec-4856-8257-cf1fb74b5049";
 
-    api.on("loaded", () => {
+    api.on("preloaded", () => {
+      // initConfigurator must be called on either 'preloaded' or 'loaded'
       api.configuator.initConfigurator({ form: FORM });
     });
 

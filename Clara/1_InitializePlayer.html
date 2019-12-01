@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!--The PlayerEl must have a fixed height
+        If the PlayerEl's position is undefined or relative 
+        ...then height must be defined with discrete units, such as px, vh, rem
+
+        If the PlayerEl's position is absolute or fixed
+        ... then height can be defined with % or by using "bottom: 0; top: 0;"
+    -->
+    <div
+      id="player-el"
+      style="bottom: 0; left: 0; position: absolute; right: 0; top: 0;"
+    ></div>
+  </body>
+  <script src="https://clara.io/js/claraplayer.min.js"></script>
+  <script>
+    var api = claraplayer("player-el");
+    var FORM = "Consumer";
+    var SCENEID = "ef35df3f-c1ec-4856-8257-cf1fb74b5049";
+
+    api.on("preloaded", () => {
+      /**  initConfigurator must be called on either 'preloaded' or 'loaded' */
+      api.configuration.initConfigurator({ form: FORM });
+    });
+
+    /** Fetch and initialize the sceneId */
+    api.sceneIO.fetchAndUse(SCENEID);
+  </script>
+</html>
