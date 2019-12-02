@@ -14,7 +14,7 @@ You will find detailed documentation here: [Documentation](https://clara.io/docs
 
 There are many low-level apis available but the most important ones for integration are listed under the [configuration module](https://clara.io/docs/module-configuration.html).
 
-**[setConfiguration](https://clara.io/docs/module-configuration.html#.setConfiguration)** passes the configuration into the Player.
+**[setConfiguration](https://clara.io/docs/module-configuration.html#.setConfiguration)** passes a configuration or BOM into the Player.
 
 **[getConfiguration](https://clara.io/docs/module-configuration.html#.setConfiguration)** retrieves the configuration from the Player.
 
