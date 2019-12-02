@@ -1,5 +1,3 @@
-console.log("yoko")
-
 const demoAssets = [
   {
     title: "Sofa",
