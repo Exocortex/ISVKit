@@ -40,7 +40,6 @@ This is a list of pre-built demo assets. You will find the sceneId, form and a l
 .
 ├── Preview
 │   ├── index.html
-│   └── style.css
 ├── Tutorial
 │   ├── 1_AppWNoPlayer.html
 │   ├── 2_EmbedPlayer.html
