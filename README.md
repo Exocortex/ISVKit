@@ -3,7 +3,7 @@
 This is a helpful guide for getting started embedding ThreeKit.
 
 Open `index.html` to navigate the examples
-
+```
 .
 ├── Preview
 │   ├── index.html
@@ -27,3 +27,4 @@ Open `index.html` to navigate the examples
 │   └── unimportantStyle.css
 ├── demo-assets.js
 └── index.html
+```
