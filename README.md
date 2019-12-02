@@ -16,7 +16,7 @@ This is a step-by-step guide that will show you how to embed the Player into a w
 
 ## Use Cases
 
-These are purpose built examples showing how an example of one specific topic.
+These are purpose built examples showing how to build common functionality.
 
 ## Demo Assets
 
