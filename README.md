@@ -1,9 +1,3 @@
-# Introduction
-
-This is a helpful guide for getting started embedding ThreeKit.
-
-Open `index.html` to navigate the examples
-
 ```
 .
 ├── Preview
@@ -23,4 +17,16 @@ Open `index.html` to navigate the examples
 │   │   └── index.html
 ├── demo-assets.js
 └── index.html
+```
+
+# Getting Started
+
+## Download & Open
+
+Download the repo and open `index.html`
+
+```
+git clone https://github.com/Exocortex/ISVKit.git
+cd isvkit
+open index.html
 ```
