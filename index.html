@@ -15,6 +15,8 @@
     </style>
   </head>
   <body id="app"></body>
+  <script src="demo-assets.js"></script>
+
   <script>
     function createCard(item, root, index) {
       const el = document.createElement("div");
@@ -68,8 +70,22 @@
             title: "Initialize Player"
           },
           { path: "./UseCases/Animations.html", title: "Toggle Animation" },
-          { path: "./UseCases/StandardForm.html", title: "Standard Form" }
+          { path: "./UseCases/StandardForm.html", title: "Standard Form" },
+          {
+            path: "./UseCases/StandardFormStyled.html",
+            title: "Standard Form With Styling"
+          }
         ]
+      },
+      {
+        title: "Assets",
+        path: "",
+        children: demoAssets.map(({ features, form, sceneId, title }) => ({
+          path: `./Preview/index.html?form=${form}&sceneId=${sceneId}`,
+          title: `${title} ${
+            features && features.length > 0 ? `: ${features.join(", ")}` : ""
+          }`
+        }))
       }
     ].map(item => createCard(item));
   </script>
