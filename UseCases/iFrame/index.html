@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../unimportantStyle.css" />
+  </head>
+  <body class="iframe-app">
+    <div>
+      <div class="iframe-form">
+        <h3>App Config Form</h3>
+        <div class="form-element">
+          <h4>Upholstery</h4>
+          <select name="Upholstery" onchange="configHandler(this)">
+            <option value="Hallingdal">Hallingdal</option>
+            <option value="Crystal Field">Crystal Field</option>
+            <option value="Reflex">Reflex</option>
+            <option value="Storey Time">Storey Time</option>
+          </select>
+        </div>
+        <div class="form-element">
+          <h4>Arms</h4>
+          <select name="Arms" onchange="configHandler(this)">
+            <option value="Arms">Arms</option>
+            <option value="Armless">Armless</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <iframe id="player-iframe" src="iframe.html"></iframe>
+  </body>
+  <script>
+    let configuration = { Upholstery: "Hallingdal", Arms: "With Arms" };
+
+    function configHandler(ev) {
+      configuration = Object.assign(configuration, { [ev.name]: ev.value });
+      return afterConfigUpdate(configuration);
+    }
+
+    function afterConfigUpdate(newConfiguration) {
+      console.log("New Configuration", newConfiguration);
+      postMessageToIframe(newConfiguration);
+    }
+
+    function postMessageToIframe(message) {
+      var targetWindow = document.getElementById("player-iframe").contentWindow;
+      send(targetWindow, message);
+    }
+
+    function send(targetWindow, message) {
+      if (!targetWindow) return;
+      targetWindow.postMessage(message, "*");
+    }
+  </script>
+</html>

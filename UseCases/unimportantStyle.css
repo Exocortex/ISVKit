@@ -17,3 +17,19 @@
 .nav-bar > * {
   cursor: pointer;
 }
+
+.iframe-app {
+  display: flex;
+}
+
+.iframe-app > * {
+  flex: 50%;
+  height: 90vh;
+}
+
+.iframe-form {
+  margin: auto;
+}
+.iframe-form > * {
+  margin: 50px;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../unimportantStyle.css" />
+  </head>
+  <body>
+    <div class="iframe-container">
+      <div
+        id="player-el"
+        style="bottom: 0; left: 0; position: absolute; right: 0; top: 0;"
+      ></div>
+    </div>
+  </body>
+  <script src="https://clara.io/js/claraplayer.min.js"></script>
+  <script>
+    var api = claraplayer("player-el");
+    var FORM = "Consumer";
+    var SCENEID = "ef35df3f-c1ec-4856-8257-cf1fb74b5049";
+
+    api.on("preloaded", () =>
+      api.configuration.initConfigurator({ form: FORM })
+    );
+
+    api.sceneIO.fetchAndUse(SCENEID);
+  </script>
+
+  <script>
+    /** Listen for messages */
+    window.addEventListener("message", messageListener);
+
+    function messageListener(ev) {
+      const newConfiguration = ev.data;
+      return api.configuration.setConfiguration(newConfiguration);
+    }
+  </script>
+</html>
