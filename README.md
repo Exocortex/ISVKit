@@ -8,6 +8,18 @@ cd isvkit
 open index.html
 ```
 
+# Helpful Resources
+
+You will find detailed documentation here: [Documentation](https://clara.io/docs/).
+
+There are many low-level apis available but the most important ones for integration are listed under the [configuration module](https://clara.io/docs/module-configuration.html).
+
+**[setConfiguration](https://clara.io/docs/module-configuration.html#.setConfiguration)** passes the configuration into the Player.
+
+**[getConfiguration](https://clara.io/docs/module-configuration.html#.setConfiguration)** retrieves the configuration from the Player.
+
+**[onChange](https://clara.io/docs/module-configuration.html#.onChange)** is a subscriber function that is called every time the Player's configuration is updated. This can be helpful when there are interactive elements to the configuration, such as drag & drop.
+
 # Sections
 
 **Tutorial**
