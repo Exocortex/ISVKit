@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="unimportantStyle.css" />
+    <style>
+      /** 
+          The standard form can be styled per the customer's brand standards. 
+          This styling can be applied in the client html page or setup on 
+          the platform.
+      */
+      /* Apply a style to every standard form element */
+      .config-container [class*="ui"] {
+        font-size: 14px;
+      }
+
+      /* Apply a style to every standard form field */
+      .config-container > * > [class*="field"] {
+        border: 1px solid green;
+        border-radius: 0.825rem;
+        padding: 10px;
+      }
+
+      /* Apply a style to every image option */
+      .config-container img {
+        border-radius: 50%;
+        height: 75px !important;
+        margin: auto;
+        width: 75px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display: flex; height: 500px; margin-top: 100px;">
+      <div style="flex: 50%; position: relative;">
+        <div
+          id="player-el"
+          style="bottom: 0; left: 0; position: absolute; right: 0; top: 0;"
+        ></div>
+      </div>
+      <div
+        class="config-container"
+        id="config-el"
+        style="flex: 50%; overflow: scroll;"
+      ></div>
+    </div>
+  </body>
+  <script src="https://clara.io/js/claraplayer.min.js"></script>
+  <script src="unimportantScript.js"></script>
+  <script>
+    var api = claraplayer("player-el");
+    var FORM = "Consumer";
+    var SCENEID = "ef35df3f-c1ec-4856-8257-cf1fb74b5049";
+
+    api.on("preloaded", () => {
+      api.configuration.initConfigurator({
+        el: document.getElementById("config-el"),
+        form: FORM
+      });
+      api.configuration.onChange((a, b, c) => console.log({ a, b, c }));
+    });
+
+    api.sceneIO.fetchAndUse(SCENEID);
+  </script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="unimportantStyle.css" />
+  </head>
+  <body>
+    <div style="display: flex; height: 500px;">
+      <div style="flex: 50%; position: relative;">
+        <div
+          id="player-el"
+          style="bottom: 0; left: 0; position: absolute; right: 0; top: 0;"
+        ></div>
+      </div>
+      <!-- Place a div on the HTML page where you want the form. -->
+      <div id="config-el" style="flex: 50%; overflow: scroll;"></div>
+    </div>
+  </body>
+  <script src="https://clara.io/js/claraplayer.min.js"></script>
+  <script src="unimportantScript.js"></script>
+  <script>
+    var api = claraplayer("player-el");
+    var FORM = "Consumer";
+    var SCENEID = "ef35df3f-c1ec-4856-8257-cf1fb74b5049";
+
+    api.on("preloaded", () => {
+      api.configuration.initConfigurator({
+        /** Pass the desired div to the initConfigurator function */
+        el: document.getElementById("config-el"),
+        form: FORM
+      });
+      /** */
+      api.configuration.onChange(subscribeToConfigUpdates);
+    });
+
+    function subscribeToConfigUpdates(attribute, value, metadata) {
+      console.group("Configuration Update");
+      console.log("attribute", attribute);
+      console.log("value", value);
+      console.log("metadata", metadata);
+      console.groupEnd();
+    }
+
+    api.sceneIO.fetchAndUse(SCENEID);
+  </script>
+</html>

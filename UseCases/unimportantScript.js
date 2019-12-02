@@ -10,7 +10,9 @@ window.examples = [
   {
     path: "Animations.html",
     title: "Toggle Animation"
-  }
+  },
+  { path: "StandardForm.html", title: "Standard Form" },
+  { path: "StandardFormStyled.html", title: "Standard Form Styled" }
 ];
 
 window.currentExample = examples.find(({ path }) =>
