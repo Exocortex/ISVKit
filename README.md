@@ -10,15 +10,15 @@ open index.html
 
 # Sections
 
-## Tutorial
+**Tutorial**
 
 This is a step-by-step guide that will show you how to embed the Player into a webpage with an existing configurator.
 
-## Use Cases
+**Use Cases**
 
 These are purpose built examples showing how to build common functionality.
 
-## Demo Assets
+**Demo Assets**
 
 This is a list of pre-built demo assets. You will find the sceneId, form and a list of attributes for each example.
 
