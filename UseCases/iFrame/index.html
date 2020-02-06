@@ -31,7 +31,7 @@
     let configuration = { Upholstery: "Hallingdal", Arms: "With Arms" };
 
     function configHandler(ev) {
-      configuration = Object.assign(configuration, { [ev.name]: ev.value });
+      configuration = Object.assign({}, configuration, { [ev.name]: ev.value });
       return afterConfigUpdate(configuration);
     }
 
